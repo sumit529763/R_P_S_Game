@@ -14,7 +14,6 @@ function fun(user_choice) {
   let user = parseInt(user_score.innerText);
   let cmp = parseInt(computer_score.innerText);
 
-  // Set the images dynamically
   ele1.src = `${user_choice}.png`;
   ele2.src = `${cmp_Choice}.png`;
 
