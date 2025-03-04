@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>R_C_P_Game</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style2.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <!-- From Uiverse.io by vikas7754 -->
+    <div class="container"></div>
+
+    <div class="heading">
+      <img
+        src="logo.webp"
+        alt="Logo"
+        width="50px"
+        height="50px"
+        style="position: absolute; top: 10px; left: 10px"
+      />
+      <h1>
+        <span style="color: rgb(78, 78, 151)">Rock</span> Paper
+        <span style="color: rgb(78, 78, 151)">Scissors</span>
+      </h1>
+      <div class="chars">
+        <span>G</span>
+        <span>A</span>
+        <span>M</span>
+        <span>E</span>
+      </div>
+    </div>
+    <div class="game">
+      <div class="game-picked">
+        <div style="text-align: center">
+          <h3>Cmp Choice</h3>
+          <br />
+          <img src="rock.png" alt="rock" id="computer_display" />
+        </div>
+        <div style="text-align: center">
+          <h3>Your Choice</h3>
+          <br />
+          <img src="rock.png" alt="rock" id="user_display" />
+        </div>
+      </div>
+      <div class="game-display">
+        <div class="game-result">
+          <h2>Result</h2>
+          <p class="res">
+            <span id="result">Start the Game</span>
+          </p>
+        </div>
+        <div class="game-score">
+          <h2>Score</h2>
+          <span id="computer_score">0</span> : <span id="user_score">0</span>
+        </div>
+      </div>
+      <div class="options">
+        <button class="button" onclick="fun('rock'); animate();">
+          <span class="button-content">Rock </span>
+        </button>
+        <button class="button" onclick="fun('paper'); animate();">
+          <span class="button-content">Paper </span>
+        </button>
+        <button class="button" onclick="fun('scissor'); animate();">
+          <span class="button-content">Scissor </span>
+        </button>
+      </div>
+    </div>
+    <audio id="bg-music" autoplay loop>
+      <source src="audio.mp3" type="audio/mpeg" />
+    </audio>
+    <button onclick="playAudio()" id="music_btn">🎵</button>
+    <script>
+      function playAudio() {
+        let audio = document.getElementById("bg-music");
+        audio.play();
+      }
+    </script>
+  </body>
+</html>
