@@ -21,26 +21,27 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <!-- From Uiverse.io by vikas7754 -->
-    <div class="container"></div>
-
-    <div class="heading">
+    <div class="my_logo">
       <img
-        src="logo.webp"
-        alt="Logo"
-        width="50px"
-        height="50px"
-        style="position: absolute; top: 10px; left: 10px"
-      />
-      <h1>
-        <span style="color: rgb(78, 78, 151)">Rock</span> Paper
-        <span style="color: rgb(78, 78, 151)">Scissors</span>
-      </h1>
-      <div class="chars">
-        <span>G</span>
-        <span>A</span>
-        <span>M</span>
-        <span>E</span>
+          src="logo.jpg"
+          alt="Logo"
+          width="50px"
+          height="50px"
+          style="position: absolute; top: 10px; left: 10px"
+        />
+    </div>
+    <div class="heading">
+      <div>
+        <h1>
+          <span style="color: rgb(78, 78, 151)">Rock</span> Paper
+          <span style="color: rgb(78, 78, 151)">Scissors</span>
+        </h1>
+        <div class="chars">
+          <span>G</span>
+          <span>A</span>
+          <span>M</span>
+          <span>E</span>
+        </div>
       </div>
     </div>
     <div class="game">
@@ -69,7 +70,11 @@
         </div>
       </div>
       <div class="options">
-        <button class="button" onclick="fun('rock'); animate();">
+        <div class="comment">
+          <h2>choose your option 👇</h2>
+        </div>
+        <div class="option_chose">
+          <button class="button" onclick="fun('rock'); animate();">
           <span class="button-content">Rock </span>
         </button>
         <button class="button" onclick="fun('paper'); animate();">
@@ -78,16 +83,24 @@
         <button class="button" onclick="fun('scissor'); animate();">
           <span class="button-content">Scissor </span>
         </button>
+        </div>
       </div>
     </div>
-    <audio id="bg-music" autoplay loop>
+    <audio id="bg-music" loop>
       <source src="audio.mp3" type="audio/mpeg" />
     </audio>
     <button onclick="playAudio()" id="music_btn">🎵</button>
     <script>
       function playAudio() {
         let audio = document.getElementById("bg-music");
-        audio.play();
+        let button = document.getElementById("music_btn");
+        if (audio.paused) {
+          audio.play();
+          button.innerHTML = "✔️";
+        } else {
+          audio.pause();
+          button.innerHTML = "🎵";
+        }
       }
     </script>
   </body>
