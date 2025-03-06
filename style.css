@@ -13,7 +13,7 @@ html,body {
   background-color: #121212;
   color: #E0E0E0;
   font-family: 'Bungee', sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .heading {
   color:#FFD700;
