@@ -3,7 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
-html,body {
+html,
+body {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -11,24 +12,27 @@ html,body {
   align-items: center;
   justify-content: space-between;
   background-color: #121212;
-  color: #E0E0E0;
-  font-family: 'Bungee', sans-serif;
+  color: #e0e0e0;
+  font-family: "Bungee", sans-serif;
   overflow-x: hidden;
+  animation: ops 3s forwards;
 }
 .heading {
-  color:#FFD700;
+  color: #ffd700;
   width: 100%;
   height: 20%;
   font-size: 3vw;
   font-weight: 800;
   display: flex;
   flex-direction: column;
+  transform: translateX(-100%);
+  animation: trns 1s ease forwards;
 }
-.my_logo{
+.my_logo {
   position: fixed;
   top: 5%;
   left: 3%;
-  & img{
+  & img {
     border-radius: 50% 0%;
   }
 }
@@ -62,32 +66,33 @@ html,body {
   animation-delay: 0.4s;
 }
 @keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-20px);
-    }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
 }
-.game{
-    width: auto;
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 20px;
-    color:rgb(97, 97, 169);
-    font-family: 'Orbitron', sans-serif;
+.game {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: rgb(97, 97, 169);
+  font-family: "Orbitron", sans-serif;
+  transform: translateX(-100%);
+  animation: trns 1s ease 1s forwards;
 }
 .game img {
-  width: 200px;
+  width: 100%;
   height: 100px;
   object-fit: cover;
   border-radius: 10px;
   background: transparent;
   filter: brightness(80%);
-  cursor: pointer;
+  opacity: 1;
 }
 #user_display {
   transform: scaleX(-1);
@@ -95,20 +100,21 @@ html,body {
 #computer_display {
   transform: scaleX(1);
 }
-@keyframes computer_scale {
+@keyframes shake {
   0% {
-    opacity: 0;
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
   }
   100% {
-    opacity: 1;
-  }
-}
-@keyframes user_scale {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -121,7 +127,7 @@ html,body {
   margin-top: 20px;
 }
 .game-picked {
-    width: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,15 +140,17 @@ html,body {
   align-items: center;
   width: 100%;
   height: 30%;
-  & .option_chose{
+  & .option_chose {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
   }
+  transform: translateX(-100%);
+  animation: trns 1s ease 2s forwards;
 }
 
-#music_btn{
+#music_btn {
   position: absolute;
   left: 4%;
   top: 25%;
@@ -151,10 +159,28 @@ html,body {
   justify-content: center;
   width: 50px;
   height: 60px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 50%;
   font-size: 24px;
   cursor: pointer;
+}
+
+@keyframes ops {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes trns {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
