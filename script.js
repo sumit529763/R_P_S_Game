@@ -11,8 +11,8 @@ function fun(user_choice) {
   let user_score = document.getElementById("user_score");
   let computer_score = document.getElementById("computer_score");
 
-  let user = parseInt(user_score.innerText);
-  let cmp = parseInt(computer_score.innerText);
+  let user = parseInt(user_score.innerText) || 0;
+  let cmp = parseInt(computer_score.innerText) || 0;
 
   if (user_choice === cmp_Choice) {
     ele3.innerHTML = "Draw";
@@ -29,6 +29,7 @@ function fun(user_choice) {
     cmp += 1;
     computer_score.innerHTML = cmp;
   }
+
   animate(user_choice, cmp_Choice);
 }
 
@@ -36,25 +37,19 @@ function animate(user_choice, cmp_Choice) {
   let ele1 = document.getElementById("user_display");
   let ele2 = document.getElementById("computer_display");
 
+  // Change images immediately
+  ele1.src = `${user_choice}.png`;
+  ele2.src = `${cmp_Choice}.png`;
 
+  // Remove shake class to reset animation
   ele1.classList.remove("shake");
   ele2.classList.remove("shake");
 
+  // Force reflow to restart animation
+  void ele1.offsetWidth;
+  void ele2.offsetWidth;
 
+  // Add shake class again
   ele1.classList.add("shake");
   ele2.classList.add("shake");
-
-
-  ele1.addEventListener("animationend", function changeUserImage() {
-    ele1.classList.remove("shake"); 
-    ele1.src = `${user_choice}.png`;
-    ele1.removeEventListener("animationend", changeUserImage);
-  });
-
-   
-  ele2.addEventListener("animationend", function changeComputerImage() {
-    ele2.classList.remove("shake");
-    ele2.src = `${cmp_Choice}.png`;
-    ele2.removeEventListener("animationend", changeComputerImage);
-  });
 }
